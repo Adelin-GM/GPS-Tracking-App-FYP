@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Log in"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        />
+    <EditText
+        android:id="@+id/usernameId"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Username"
+        android:maxHeight="50dp"
+        android:maxWidth="200dp"
+        android:inputType="textPersonName"
+        />
+
+    <EditText
+        android:id="@+id/pasId"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Password"
+        android:maxHeight="50dp"
+        android:maxWidth="200dp"
+        android:inputType="textPassword"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Log In"
+        android:textSize="24sp"
+        android:onClick="logInBtn"
+        android:backgroundTint="#4FC8FF"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Register"
+        android:textSize="24sp"
+        android:onClick="registerBtn"
+        android:backgroundTint="#4FC8FF"
+        />
+
+
+
+
+</LinearLayout>
