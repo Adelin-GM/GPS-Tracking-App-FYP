@@ -248,7 +248,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         int distance = getDistance();
         if (distance < 1000)
         {
-            tvDistance.setText("Distance: " +  distance + " mmmmm");
+            tvDistance.setText("Distance: " +  distance + " m");
         }
         else
         {
