@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ProfileActivity">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:gravity="left"
+      android:background="@color/black">
+
+    <TextView
+        android:id="@+id/usernameId"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="#username"
+        android:textColor="@color/white"
+        android:textSize="20sp"/>
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:gravity="left">
+
+    <TextView
+        android:id="@+id/tvHeight"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Height: "
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/tvWeight"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Weight: "
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/tvDistance"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total distance: "
+        android:textSize="20sp"/>
+    <TextView
+        android:id="@+id/tvCalories"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calories burned: "
+        android:textSize="20sp"/>
+
+  </LinearLayout>
+
+  </LinearLayout>

@@ -52,35 +52,35 @@ public class UserClass {
         });
     }
 
-    protected String getUsername() {
+    public String getUsername() {
         return username;
     }
 
-    protected void setUsername(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
-    protected String getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    protected void setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    protected Double getWeight() {
+    public Double getWeight() {
         return weight;
     }
 
-    protected void setWeight(Double weight) {
+    public void setWeight(Double weight) {
         this.weight = weight;
     }
 
-    protected int getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    protected void setHeight(int height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 }
