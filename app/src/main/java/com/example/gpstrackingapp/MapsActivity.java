@@ -322,6 +322,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
     //endregion Chronometer
 
+    //region UserProfile
     public void ProfileBtn(View view) {
         changeToProfileActivity();
     }
@@ -336,6 +337,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         startActivity(intent);
 
     }
+    //endregion UserProfile
 
 
 
