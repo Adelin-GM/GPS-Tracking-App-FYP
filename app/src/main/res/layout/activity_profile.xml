@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,6 +11,7 @@
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:id="@+id/usernameLayout"
       android:orientation="vertical"
       android:gravity="left"
       android:background="@color/black">
@@ -26,18 +27,24 @@
 
   </LinearLayout>
   <TextView
+      android:id="@+id/rewards"
       android:paddingTop="10dp"
       android:gravity="center"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:text="Rewards list"
       android:textColor="@color/black"
-      android:textSize="20sp"/>
+      android:textSize="20sp"
+      android:layout_below="@id/usernameLayout"
+      android:layout_alignParentLeft="true"/>
   <HorizontalScrollView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:fillViewport="false"
-      android:padding="10dp">
+      android:id="@+id/scrollView"
+      android:padding="10dp"
+      android:layout_below="@id/rewards"
+      android:layout_alignParentLeft="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -143,7 +150,9 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="vertical"
-      android:gravity="left">
+      android:gravity="left"
+      android:layout_below="@id/scrollView"
+      android:layout_alignParentLeft="true">
 
     <TextView
         android:gravity="center"
@@ -187,4 +196,38 @@
 
   </LinearLayout>
 
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="70dp"
+      android:layout_alignParentBottom="true"
+      android:gravity="center"
+      android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/profileBt"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:backgroundTint="#CC4FC8FF"
+        android:text="Search profile"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/Leaderboard"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:backgroundTint="#CC4FC8FF"
+        android:text="Leaderboard"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:onClick="leaderboardBtn"/>
+
+
+
   </LinearLayout>
+
+
+
+  </RelativeLayout>

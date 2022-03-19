@@ -2,9 +2,11 @@ package com.example.gpstrackingapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -90,12 +92,15 @@ public class ProfileActivity extends AppCompatActivity {
             diamond.setColorFilter(Color.parseColor("#483d8b"));
 
 
-
-
-
-
     }
 
 
+    public void leaderboardBtn(View view) {
+        changeToLeaderboardActivity();
+    }
 
+    private void changeToLeaderboardActivity(){
+        Intent intent = new Intent(this, LeaderboardActivity.class);
+        startActivity(intent);
+    }
 }
