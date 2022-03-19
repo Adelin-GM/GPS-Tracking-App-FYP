@@ -16,7 +16,7 @@
       android:background="@color/black">
 
     <TextView
-        android:id="@+id/usernameId"
+        android:id="@+id/username"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,12 +25,134 @@
         android:textSize="20sp"/>
 
   </LinearLayout>
+  <TextView
+      android:paddingTop="10dp"
+      android:gravity="center"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Rewards list"
+      android:textColor="@color/black"
+      android:textSize="20sp"/>
+  <HorizontalScrollView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:fillViewport="false"
+      android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bronze | 1km"
+            android:textColor="@color/black"
+            android:textSize="10sp"/>
+        <ImageView
+            android:id="@+id/rewardBronze"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_reward"
+            />
+      </LinearLayout>
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Silver | 5km"
+            android:textColor="@color/black"
+            android:textSize="10sp"/>
+        <ImageView
+            android:id="@+id/rewardSilver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_reward"
+            />
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gold | 10km"
+            android:textColor="@color/black"
+            android:textSize="10sp"/>
+        <ImageView
+            android:id="@+id/rewardGold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_reward"
+            />
+      </LinearLayout>
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Platinum | 50km"
+            android:textColor="@color/black"
+            android:textSize="10sp"/>
+        <ImageView
+            android:id="@+id/rewardPlatinum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_reward"
+            />
+      </LinearLayout>
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Diamond | 100km"
+            android:textColor="@color/black"
+            android:textSize="10sp"/>
+        <ImageView
+            android:id="@+id/rewardDiamond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_reward"
+            />
+      </LinearLayout>
+    </LinearLayout>
+
+  </HorizontalScrollView>
 
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="vertical"
       android:gravity="left">
+
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User info"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:paddingTop="20dp"/>
 
     <TextView
         android:id="@+id/tvHeight"

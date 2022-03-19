@@ -13,6 +13,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
@@ -210,11 +211,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    public void StartPathBtn(View view) {
+    public void StartStopPathBtn(View view) {
         Button startBt = (Button) view;
         if (start) {
             stopChronometer();
-            displayDistance();
+            updateUserDistance();
+            updateUserCalories();
             points = new ArrayList<>();
             start = false;
             startBt.setText("Start");
@@ -257,6 +259,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    private void updateUserDistance(){
+        int distance = user.getDistance() + getDistance();
+        user.setDistance(distance);
+        FBDatabase db = new FBDatabase();
+        db.updateUser(user);
+    }
+
     private double getSpeed(){
         //double timeSeconds = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000.0;        //time in seconds
         double timeMinutes = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 60000.0;         //time in minutes
@@ -270,7 +279,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         tvSpeed.setText(String.format("Avg speed: %.2f km/h", getSpeed()));
     }
 
-    private double getCalories(){
+    private int getCalories(){
         //calories burned per minute = (0.035 * body weight in kg) + ((velocity in m/s^2)/ Height in m)) * 0.029 * body weight in kg
         //calories burned = calories burned per minute * time in minutes
 
@@ -280,13 +289,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Log.d("Velocity", velocityms + " m/s^2");
         double timeMinutes = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 60000.0;
 
-        Double caloriesPerMinute = (0.035 * user.getWeight()) + (velocityms/ heightInM) * 0.029 * user.getWeight();
-        Double caloriesBurned = caloriesPerMinute * timeMinutes;
-        return caloriesBurned;
+        double caloriesPerMinute = (0.035 * user.getWeight()) + (velocityms/ heightInM) * 0.029 * user.getWeight();
+        double caloriesBurned = caloriesPerMinute * timeMinutes;
+        return (int) caloriesBurned;
     }
 
     private void displayCalories(){
-        tvCalories.setText(String.format("Calories: %.0f", getCalories()));
+        tvCalories.setText(String.format("Calories: " + getCalories()));
+    }
+
+    private void updateUserCalories(){
+        int calories = user.getCalories() + getCalories();
+        user.setCalories(calories);
+        FBDatabase db = new FBDatabase();
+        db.updateUser(user);
     }
     //endregion TrailStats
 
@@ -305,6 +321,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         running = false;
     }
     //endregion Chronometer
+
+    public void ProfileBtn(View view) {
+        changeToProfileActivity();
+    }
+
+    private void changeToProfileActivity(){
+        Intent intent = new Intent(this, ProfileActivity.class);
+        intent.putExtra("username", user.getUsername());
+        intent.putExtra("height", user.getHeight());
+        intent.putExtra("weight", user.getWeight());
+        intent.putExtra("distance", user.getDistance());
+        intent.putExtra("calories", user.getCalories());
+        startActivity(intent);
+
+    }
+
 
 
 

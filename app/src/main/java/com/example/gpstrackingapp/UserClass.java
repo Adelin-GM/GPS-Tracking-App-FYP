@@ -16,15 +16,19 @@ public class UserClass {
     String password;
     Double weight;
     int height;
+    int calories;
+    int distance;
 
     protected UserClass() {
     }
 
-    protected UserClass(String username, String password, Double weight, int height) {
+    public UserClass(String username, String password, Double weight, int height, int calories, int distance) {
         this.username = username;
         this.password = password;
         this.weight = weight;
         this.height = height;
+        this.calories = calories;
+        this.distance = distance;
     }
 
     protected UserClass(String username){
@@ -40,6 +44,8 @@ public class UserClass {
                     password = snapshot.child(username).child("password").getValue(String.class);
                     weight = snapshot.child(username).child("weight").getValue(Double.class);
                     height = snapshot.child(username).child("height").getValue(int.class);
+                    calories = snapshot.child(username).child("calories").getValue(int.class);
+                    distance = snapshot.child(username).child("distance").getValue(int.class);
 
                 }
                 else {
@@ -82,5 +88,21 @@ public class UserClass {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public void setCalories(int calories) {
+        this.calories = calories;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
     }
 }

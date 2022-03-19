@@ -28,6 +28,7 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:backgroundTint="#CC4FC8FF"
+            android:onClick="ProfileBtn"
             android:text="Profile"
             android:textAllCaps="false"
             android:textColor="@color/white" />
@@ -38,7 +39,7 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:backgroundTint="#CCFF4F4F"
-            android:onClick="StartPathBtn"
+            android:onClick="StartStopPathBtn"
             android:text="Start"
             android:textAllCaps="false"
             android:textColor="@color/white" />

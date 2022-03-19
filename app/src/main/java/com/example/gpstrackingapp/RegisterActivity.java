@@ -87,7 +87,8 @@ public class RegisterActivity extends AppCompatActivity {
         Double weight = Double.valueOf(weightET.getText().toString());
         int height = Integer.valueOf(heightET.getText().toString());
 
-        UserClass userClass = new UserClass(username, password, weight, height);
+
+        UserClass userClass = new UserClass(username, password, weight, height, 0 , 0);
         reference.child(username).setValue(userClass);
 
         changeToLogInActivity(username);
