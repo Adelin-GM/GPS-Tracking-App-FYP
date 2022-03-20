@@ -64,7 +64,7 @@ public class LeaderboardActivity extends AppCompatActivity {
                     public void run() {
                         UserListAdapter adapter = new UserListAdapter(LeaderboardActivity.this, R.layout.adapter_leaderboard_item_view_layout, db.usersList);
                         leaderboardListView.setAdapter(adapter);
-                        leaderboardTV.setText("Leaderboard");
+                        leaderboardTV.setText("Top 50");
                     }
                 });
 

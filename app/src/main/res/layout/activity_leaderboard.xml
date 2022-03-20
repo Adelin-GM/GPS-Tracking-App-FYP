@@ -9,13 +9,22 @@
     android:orientation="vertical">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Leaderboard"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@color/black"/>
+
+    <TextView
         android:id="@+id/leaderboardTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Loading Leaderboard..."
+        android:text="Loading..."
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:background="@color/black"/>
 
     <ListView
