@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="100">
+
+    <TextView
+        android:id="@+id/rankTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="18sp"
+        android:text="#1"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:layout_weight="40.0"
+        android:textColor="#009314"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/usernameTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="18sp"
+        android:text="Username"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:layout_weight="30.0"
+        android:textColor="#007693"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/distanceTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="18sp"
+        android:text="100km"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:layout_weight="30.0"
+        android:textColor="#009314"
+        android:textStyle="bold"/>
+
+</LinearLayout>

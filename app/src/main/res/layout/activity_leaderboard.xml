@@ -5,15 +5,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LeaderboardActivity">
+    tools:context=".LeaderboardActivity"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/leaderboardTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Leaderboard"
+        android:text="Loading Leaderboard..."
         android:textColor="@color/white"
         android:textSize="20sp"
         android:background="@color/black"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#FF007693"
+        android:dividerHeight="2dp"
+        android:id="@+id/lListView"/>
 
 </LinearLayout>

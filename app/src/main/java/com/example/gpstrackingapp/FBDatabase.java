@@ -19,6 +19,7 @@ public class FBDatabase {
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
+    private final int TOPUSERS = 50;
     public ArrayList<UserClass> usersList;
 
 
@@ -35,7 +36,7 @@ public class FBDatabase {
 
     protected void getAllUsers(){
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        Query query = reference.child("users").orderByChild("distance").limitToLast(10);
+        Query query = reference.child("users").orderByChild("distance").limitToLast(TOPUSERS);
 
         query.addValueEventListener(new ValueEventListener() {
             @Override
