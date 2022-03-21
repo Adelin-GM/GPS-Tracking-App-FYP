@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Address;
@@ -38,6 +39,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.gpstrackingapp.databinding.ActivityMapsBinding;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -45,8 +48,10 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -69,7 +74,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     LocationCallback locationCallback;
     Location lastLocation;
 
+    ArrayList<Trail> trails;
     ArrayList<LatLng> points;
+    PolylineOptions path;
 
 
 
@@ -86,6 +93,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
+        loadData();
         assignViews();
         assignUser();
         createMap();
@@ -192,41 +200,76 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
     //endregion MapAndLocation
 
-    //region TrailCreation
+    //region TrailAndPathCreation
     public void DrawPath(LatLng location) {
         if (!start) {
             return;
         }
         displayDistance();      //realtime distance
         displaySpeed();         //realtime speed
-        displayCalories();
+        displayCalories();      //realtime calories
 
         points.add(location);
-        PolylineOptions lineOptions = new PolylineOptions();
-        lineOptions.addAll(points);
-        lineOptions.width(20);
-        lineOptions.color(Color.BLUE);
-        if (lineOptions != null) {
-            mMap.addPolyline(lineOptions);
+        path = new PolylineOptions();
+        path.addAll(points);
+        path.width(20);
+        path.color(Color.BLUE);
+        if (path != null) {
+            mMap.addPolyline(path);
         }
     }
 
     public void StartStopPathBtn(View view) {
         Button startBt = (Button) view;
-        if (start) {
+        if (start) {                    //when user presses Stop
             stopChronometer();
-            updateUserDistance();
-            updateUserCalories();
+            updateUserDistance();       //updates userDistance in database
+            updateUserCalories();       //updates userCalories in database
+            Trail trail = createTrail();
+            saveTrail(trail);
             points = new ArrayList<>();
             start = false;
             startBt.setText("Start");
-        } else {
+        } else {                        //when user presses Start
             startChronometer();
             start = true;
             startBt.setText("Stop");
         }
     }
-    //endregion TrailCreation
+
+    private Trail createTrail(){
+        double timeMinutes = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 60000.0;
+        Trail trail = new Trail(path, timeMinutes, getDistance(), getSpeed(), getCalories());
+        return trail;
+    }
+
+    private void saveTrail(Trail trail){
+        trails.add(trail);
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(trails);
+        editor.putString("task list", json);
+        editor.apply();
+    }
+
+    private void loadData(){
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("task list" , null);
+        Type type = new TypeToken<ArrayList<Trail>>() {}.getType();
+        trails = gson.fromJson(json, type);
+
+        if (trails == null) {
+            trails = new ArrayList<>();
+        }
+        for (Trail trail: trails) {
+            Log.d("***Trail***", trail.date);
+        }
+
+    }
+
+    //endregion TrailAndPathCreation
 
     //region TrailStats
     private int getDistance() {     //returns distance in meters
