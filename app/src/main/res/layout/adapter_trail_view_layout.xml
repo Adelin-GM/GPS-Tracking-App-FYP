@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/layout_bg"
+    android:onClick="trailInfoBtn">
+
+    <TextView
+        android:id="@+id/trailDate"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="10sp"
+        android:text="27/09/2000"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:layout_weight="40.0"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_weight="30.0">
+
+        <TextView
+            android:id="@+id/trailDistance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="100.000 km"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="#195A46"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_foreground"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="30.0">
+
+        <TextView
+            android:id="@+id/trailTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="10 min"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/trailSpeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="5.0 km/h"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/trailCalories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="10 cal"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

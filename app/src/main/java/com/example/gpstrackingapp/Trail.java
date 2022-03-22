@@ -17,12 +17,36 @@ public class Trail {
     }
 
 
-    public Trail(PolylineOptions path, double timeMinutes, int distance, double speed, int calories) {
+    public Trail(PolylineOptions path, double timeMinutes, int distance, double speed, int calories, String date) {
         this.path = path;
         this.timeMinutes = timeMinutes;
         this.distance = distance;
         this.speed = speed;
         this.calories = calories;
-        date = DateFormat.getDateInstance(DateFormat.SHORT).format(Calendar.getInstance().getTime());
+        this.date = date;
+    }
+
+    public PolylineOptions getPath() {
+        return path;
+    }
+
+    public double getTimeMinutes() {
+        return timeMinutes;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public String getDate() {
+        return date;
     }
 }

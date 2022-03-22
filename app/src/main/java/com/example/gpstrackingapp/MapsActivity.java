@@ -51,8 +51,10 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -74,7 +76,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     LocationCallback locationCallback;
     Location lastLocation;
 
-    ArrayList<Trail> trails;
+    private ArrayList<Trail> trails;
     ArrayList<LatLng> points;
     PolylineOptions path;
 
@@ -239,7 +241,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private Trail createTrail(){
         double timeMinutes = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 60000.0;
-        Trail trail = new Trail(path, timeMinutes, getDistance(), getSpeed(), getCalories());
+        String date = DateFormat.getDateInstance(DateFormat.SHORT).format(Calendar.getInstance().getTime());
+
+        Trail trail = new Trail(path, timeMinutes, getDistance(), getSpeed(), getCalories(), date);
         return trail;
     }
 
@@ -381,6 +385,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
     //endregion UserProfile
+
+    //region TrailsActivity
+    public void TrailsBtn(View view) {
+        changeToTrailsActivity();
+    }
+
+    private void changeToTrailsActivity(){
+        Intent intent = new Intent(this, TrailsActivity.class);
+        startActivity(intent);
+    }
+
+    //endregion TrailsActivity
 
 
 

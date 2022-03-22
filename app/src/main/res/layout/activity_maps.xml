@@ -50,6 +50,7 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:backgroundTint="#CC4FC8FF"
+            android:onClick="TrailsBtn"
             android:text="Trails"
             android:textAllCaps="false"
             android:textColor="@color/white" />
