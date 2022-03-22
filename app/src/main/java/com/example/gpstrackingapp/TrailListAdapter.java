@@ -50,12 +50,39 @@ public class TrailListAdapter extends ArrayAdapter<Trail> {
         TextView tvCalories = (TextView) convertView.findViewById(R.id.trailCalories);
 
         tvDate.setText(date + "");
-        tvTime.setText(timeMinutes + " min");
-        tvDistance.setText(distance + " m");
-        tvSpeed.setText(speed + " km/h");
+        tvTime.setText(toCorrectTime(timeMinutes));
+        tvDistance.setText(toCorrectDistance(distance));
+        tvSpeed.setText(toCorrectSpeed(speed));
         tvCalories.setText(calories + " cal");
 
 
         return convertView;
+    }
+
+    private String toCorrectDistance(int distance){
+        String sDistance;
+        if (distance < 1000)
+        {
+            sDistance = distance + " m";
+        }
+        else
+        {
+            double distanceKm = distance / 1000.0;
+            sDistance = distance + " km";
+        }
+
+        return sDistance;
+    }
+
+    private String toCorrectSpeed(double speed){
+        return String.format("%.2f km/h", speed);
+    }
+
+    private String toCorrectTime(double timeMinutes){
+        double totalSeconds = timeMinutes * 60;
+        double seconds = totalSeconds % 60;
+        String sTime = String.format("%.0f:%.0f", timeMinutes, seconds);
+
+        return sTime;
     }
 }

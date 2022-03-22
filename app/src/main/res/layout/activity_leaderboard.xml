@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LeaderboardActivity"
+    android:background="@color/black"
     android:orientation="vertical">
 
     <TextView
@@ -30,8 +31,8 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="#FF007693"
-        android:dividerHeight="2dp"
+        android:divider="@color/black"
+        android:dividerHeight="4dp"
         android:id="@+id/lListView"/>
 
 </LinearLayout>

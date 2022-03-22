@@ -51,36 +51,80 @@
         android:layout_height="wrap_content"
         android:layout_weight="30.0">
 
-        <TextView
-            android:id="@+id/trailTime"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="10 min"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
-        <TextView
-            android:id="@+id/trailSpeed"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginTop="2dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_timer"/>
+
+            <TextView
+                android:id="@+id/trailTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="18sp"
+                android:text="1 : 35"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="5.0 km/h"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
-        <TextView
-            android:id="@+id/trailCalories"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginTop="2dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_speed"/>
+
+            <TextView
+                android:id="@+id/trailSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="18sp"
+                android:text="5.0 km/h"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="10 cal"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginTop="2dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_fire"/>
+
+            <TextView
+                android:id="@+id/trailCalories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="18sp"
+                android:text="10 cal"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+
+
+
+
 
     </LinearLayout>
 
