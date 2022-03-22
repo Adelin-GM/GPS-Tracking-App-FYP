@@ -81,7 +81,8 @@ public class TrailListAdapter extends ArrayAdapter<Trail> {
     private String toCorrectTime(double timeMinutes){
         double totalSeconds = timeMinutes * 60;
         double seconds = totalSeconds % 60;
-        String sTime = String.format("%.0f:%.0f", timeMinutes, seconds);
+        int newTimeMinutes = (int) timeMinutes;
+        String sTime = String.format(newTimeMinutes + " : %.0f", seconds);
 
         return sTime;
     }
