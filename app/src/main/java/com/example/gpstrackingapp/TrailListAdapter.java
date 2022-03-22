@@ -68,7 +68,7 @@ public class TrailListAdapter extends ArrayAdapter<Trail> {
         else
         {
             double distanceKm = distance / 1000.0;
-            sDistance = distance + " km";
+            sDistance = distanceKm + " km";
         }
 
         return sDistance;
