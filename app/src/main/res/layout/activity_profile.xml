@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/gradient_bg"
     tools:context=".ProfileActivity">
 
   <LinearLayout
@@ -26,121 +27,138 @@
         android:textSize="20sp"/>
 
   </LinearLayout>
+
   <TextView
       android:id="@+id/rewards"
-      android:paddingTop="10dp"
-      android:gravity="center"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Rewards list"
-      android:textColor="@color/black"
-      android:textSize="20sp"
       android:layout_below="@id/usernameLayout"
-      android:layout_alignParentLeft="true"/>
+      android:layout_alignParentLeft="true"
+      android:background="#26FFFFFF"
+      android:gravity="center"
+      android:paddingHorizontal="10dp"
+      android:text="Rewards list"
+      android:textColor="@color/white"
+      android:textSize="20sp" />
+
   <HorizontalScrollView
+      android:id="@+id/scrollView"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:fillViewport="false"
-      android:id="@+id/scrollView"
-      android:padding="10dp"
       android:layout_below="@id/rewards"
-      android:layout_alignParentLeft="true">
+      android:scrollbarSize="0dp"
+      android:layout_alignParentLeft="true"
+      android:fillViewport="false">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#26FFFFFF"
         android:orientation="horizontal">
 
       <LinearLayout
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_margin="5dp"
           android:orientation="vertical">
+
         <TextView
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Bronze | 1km"
-            android:textColor="@color/black"
-            android:textSize="10sp"/>
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
         <ImageView
             android:id="@+id/rewardBronze"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_reward"
-            />
-      </LinearLayout>
-      <LinearLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="vertical">
-        <TextView
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Silver | 5km"
-            android:textColor="@color/black"
-            android:textSize="10sp"/>
-        <ImageView
-            android:id="@+id/rewardSilver"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_reward"
-            />
+            android:src="@drawable/ic_reward" />
       </LinearLayout>
 
       <LinearLayout
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_margin="5dp"
           android:orientation="vertical">
+
         <TextView
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Silver | 5km"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:id="@+id/rewardSilver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_reward" />
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="5dp"
+          android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Gold | 10km"
-            android:textColor="@color/black"
-            android:textSize="10sp"/>
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
         <ImageView
             android:id="@+id/rewardGold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_reward"
-            />
+            android:src="@drawable/ic_reward" />
       </LinearLayout>
+
       <LinearLayout
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_margin="5dp"
           android:orientation="vertical">
+
         <TextView
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Platinum | 50km"
-            android:textColor="@color/black"
-            android:textSize="10sp"/>
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
         <ImageView
             android:id="@+id/rewardPlatinum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_reward"
-            />
+            android:src="@drawable/ic_reward" />
       </LinearLayout>
+
       <LinearLayout
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_margin="5dp"
           android:orientation="vertical">
+
         <TextView
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Diamond | 100km"
-            android:textColor="@color/black"
-            android:textSize="10sp"/>
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
         <ImageView
             android:id="@+id/rewardDiamond"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_reward"
-            />
+            android:src="@drawable/ic_reward" />
       </LinearLayout>
     </LinearLayout>
 
@@ -150,24 +168,27 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="vertical"
-      android:gravity="left"
+      android:gravity="center"
       android:layout_below="@id/scrollView"
       android:layout_alignParentLeft="true">
 
     <TextView
         android:gravity="center"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="User info"
         android:textSize="20sp"
-        android:textColor="@color/black"
-        android:paddingTop="20dp"/>
+        android:textColor="@color/white"
+        android:paddingVertical="10dp"
+        android:background="@drawable/ic_fire"
+        android:backgroundTint="#40E8E8E8"/>
 
     <TextView
         android:id="@+id/tvHeight"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Height: "
         android:textSize="20sp"/>
 
@@ -176,6 +197,7 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Weight: "
         android:textSize="20sp"/>
 
@@ -184,6 +206,7 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Total distance: "
         android:textSize="20sp"/>
     <TextView
@@ -191,6 +214,7 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Calories burned: "
         android:textSize="20sp"/>
 

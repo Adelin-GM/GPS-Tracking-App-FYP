@@ -5,29 +5,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg"
     tools:context=".TrailsActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Trails"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:background="@color/black"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_margin="4dp">
+        android:layout_margin="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Trails"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
 
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:dividerHeight="4dp"
-            android:divider="@color/white"
+            android:dividerHeight="5dp"
+            android:divider="#00FFFFFF"
             android:id="@+id/trailsListView"
             android:scrollbarSize="0dp"/>
 

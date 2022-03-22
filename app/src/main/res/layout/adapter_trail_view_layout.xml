@@ -36,14 +36,14 @@
             android:text="100.000 km"
             android:gravity="center"
             android:textAlignment="center"
-            android:textColor="#10392C"
+            android:textColor="#1C6850"
             android:textStyle="bold"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ic_launcher_foreground"
-            app:tint="#10392C" />
+            app:tint="#1C6850" />
 
     </LinearLayout>
 
