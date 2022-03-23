@@ -241,7 +241,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private Trail createTrail(){
         double timeMinutes = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 60000.0;
-        String date = DateFormat.getDateInstance(DateFormat.SHORT).format(Calendar.getInstance().getTime());
+        String date = DateFormat.getDateInstance(DateFormat.MEDIUM).format(Calendar.getInstance().getTime());
 
         Trail trail = new Trail(path, timeMinutes, getDistance(), getSpeed(), getCalories(), date);
         return trail;

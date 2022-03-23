@@ -54,6 +54,7 @@ public class TrailListAdapter extends ArrayAdapter<Trail> {
         tvDistance.setText(toCorrectDistance(distance));
         tvSpeed.setText(toCorrectSpeed(speed));
         tvCalories.setText(calories + " cal");
+        convertView.setTag(position);
 
 
         return convertView;

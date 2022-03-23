@@ -2,11 +2,13 @@ package com.example.gpstrackingapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -30,6 +32,21 @@ public class TrailsActivity extends AppCompatActivity {
     }
 
     public void trailInfoBtn(View view) {
+        Log.d(TAG, "trailInfoBtn: Started");
+        TextView textView = view.findViewById(R.id.trailCalories);
+        String s = view.getTag().toString();
+        Log.d(TAG, "trailInfoBtn: " + s);
+
+        Log.d(TAG, "trailInfoBtn: fromlist " + trailList.get(Integer.parseInt(s)).getDistance());
+        changeToTrailMapActivity(Integer.parseInt(s));
+
+    }
+
+    private void changeToTrailMapActivity(int i){
+        Intent intent = new Intent(this, TrailMapActivity.class);
+        intent.putExtra("index", i);
+        startActivity(intent);
+
     }
 
     private void loadData(){
