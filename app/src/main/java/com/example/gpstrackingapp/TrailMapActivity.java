@@ -14,6 +14,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.gpstrackingapp.databinding.ActivityTrailMapBinding;
@@ -66,13 +67,17 @@ public class TrailMapActivity extends FragmentActivity implements OnMapReadyCall
             path = trail.getPath();
         }
 
-        path.color(Color.DKGRAY);
+        path.color(Color.CYAN);
         if (path != null) {
             mMap.addPolyline(path);
             Log.d(TAG, "onMapReady: Path not null" + path.getPoints().get(0));
         }
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(path.getPoints().get(0), 18 ));
+        LatLng start = path.getPoints().get(0);
+        LatLng finish = path.getPoints().get(path.getPoints().size() - 1);
+        mMap.addMarker(new MarkerOptions().position(start).title("Started here")).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN));
+        mMap.addMarker(new MarkerOptions().position(finish).title("Finished here")).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(start, 18 ));
     }
 
     private void addTrailDataToView(Trail trail){

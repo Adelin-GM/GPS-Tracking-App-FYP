@@ -21,7 +21,7 @@ android:orientation="vertical">
     android:layout_height="match_parent"
     android:layout_alignParentBottom="true"
     android:gravity="center"
-    android:background="@color/white"
+    android:background="@drawable/gradient_bg2"
     android:orientation="vertical"
     android:layout_weight="80.0">
     
@@ -30,35 +30,40 @@ android:orientation="vertical">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         android:text="27/09/2000"/>
     <TextView
         android:id="@+id/trailMapDistance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         android:text="3 km"/>
     <TextView
         android:id="@+id/trailMapSpeed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         android:text="5 km/h"/>
     <TextView
         android:id="@+id/trailMapCalories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         android:text="50 cal"/>
     <TextView
         android:id="@+id/trailMapTimer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         android:text="00 : 00"/>
 
 
