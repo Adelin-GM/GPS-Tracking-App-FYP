@@ -1,0 +1,42 @@
+<resources>
+    <!-- Theme Preference -->
+    <string-array name="theme_entries">
+        <item>Original theme</item>
+        <item>Dark theme</item>
+        <item>Silver theme</item>
+        <item>Natural theme</item>
+    </string-array>
+
+    <string-array name="theme_values">
+        <item>original theme</item>
+        <item>dark theme</item>
+        <item>silver theme</item>
+        <item>natural theme</item>
+    </string-array>
+
+    <!-- Path Color Preference -->
+    <string-array name="path_entries">
+        <item>Blue</item>
+        <item>Black</item>
+        <item>White</item>
+        <item>Gray</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Yellow</item>
+        <item>Cyan</item>
+    </string-array>
+
+    <string-array name="path_values">
+        <item>blue</item>
+        <item>black</item>
+        <item>white</item>
+        <item>gray</item>
+        <item>red</item>
+        <item>green</item>
+        <item>yellow</item>
+        <item>cyan</item>
+    </string-array>
+
+
+
+</resources>

@@ -1,16 +1,20 @@
 package com.example.gpstrackingapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ProfileActivity extends AppCompatActivity {
+    private static final String TAG = "ProfileActivity";
     TextView username, height, weight, distance, calories;
     double distanceKm = 0;
 
@@ -103,4 +107,17 @@ public class ProfileActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LeaderboardActivity.class);
         startActivity(intent);
     }
+
+    public void settingsBtn(View view) {
+        Log.d(TAG, "settingsBtn: Settings");
+        changeToSettingsActivity();
+    }
+
+    private void changeToSettingsActivity(){
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+    }
+
+
+
 }

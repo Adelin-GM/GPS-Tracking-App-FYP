@@ -9,13 +9,20 @@
     android:background="@drawable/gradient_bg"
     tools:context=".ProfileActivity">
 
+
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:id="@+id/usernameLayout"
       android:orientation="vertical"
-      android:gravity="left"
-      android:background="@color/black">
+      android:gravity="right"
+      android:background="@drawable/gradient_bg2">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_baseline_settings"
+        android:onClick="settingsBtn" />
 
     <TextView
         android:id="@+id/username"
@@ -24,6 +31,7 @@
         android:layout_height="wrap_content"
         android:text="#username"
         android:textColor="@color/white"
+        android:layout_marginBottom="5dp"
         android:textSize="20sp"/>
 
   </LinearLayout>

@@ -1,0 +1,53 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <PreferenceCategory app:title="User">
+
+        <SwitchPreferenceCompat
+            app:key="private"
+            app:title="Private account"
+            app:defaultValue="true"
+            app:summaryOn="Users are unable to search for your profile"
+            app:summaryOff="Other users can search and view your profile"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Map">
+
+        <ListPreference
+            app:defaultValue="original theme"
+            app:entries="@array/theme_entries"
+            app:entryValues="@array/theme_values"
+            app:key="map"
+            app:title="Map theme"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="blue"
+            app:entries="@array/path_entries"
+            app:entryValues="@array/path_values"
+            app:key="path"
+            app:title="Trail theme"
+            app:useSimpleSummaryProvider="true" />
+
+        <CheckBoxPreference
+            app:key="distance"
+            app:title="Show distance"
+            app:defaultValue="true"
+            />
+        <CheckBoxPreference
+            app:key="speed"
+            app:title="Show speed"
+            app:defaultValue="true"
+            />
+        <CheckBoxPreference
+            app:key="calories"
+            app:title="Show calories"
+            app:defaultValue="true"
+            />
+
+    </PreferenceCategory>
+
+
+
+</PreferenceScreen>

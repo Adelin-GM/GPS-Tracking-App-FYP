@@ -4,6 +4,7 @@ import androidx.annotation.ContentView;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
+import androidx.preference.PreferenceManager;
 
 import android.Manifest;
 import android.content.Intent;
@@ -35,6 +36,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.gpstrackingapp.databinding.ActivityMapsBinding;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -59,6 +61,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
+    private static final String TAG = "MapsActivity";
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
@@ -66,6 +69,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Chronometer chronometer;
     private boolean running;
     private UserClass user;
+    private MapStyleOptions mapStyleOptions;
+    private int mapType;
+    private int pathColor;
 
     TextView tvDistance;
     TextView tvSpeed;
@@ -95,6 +101,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
+        applySettings();
         loadData();
         assignViews();
         assignUser();
@@ -102,6 +109,86 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         getLocationPermission();
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        applySettings();
+    }
+
+    //region Settings
+    private void applySettings(){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        applyMapTheme(preferences);
+        applyPathColor(preferences);
+        applyStatsSettings(preferences);
+        Log.d(TAG, "applySettings: Settings applied");
+    }
+
+    private void applyMapTheme(SharedPreferences preferences){
+        mapType = 1;
+        String theme = preferences.getString("map", "");
+        switch(theme) {
+            case "original theme":
+                mapType = 3;
+                mapStyleOptions = new MapStyleOptions("[]");
+                break;
+            case "dark theme":
+                mapStyleOptions = MapStyleOptions.loadRawResourceStyle(this, R.raw.map_dark);
+                break;
+            case "silver theme":
+                mapStyleOptions = MapStyleOptions.loadRawResourceStyle(this, R.raw.map_silver);
+                break;
+            case "natural theme":
+                mapType = 4;
+                break;
+            default:
+        }
+        if (mMap !=null){
+            mMap.setMapType(mapType);
+            mMap.setMapStyle(mapStyleOptions);
+        }
+        Log.d(TAG, "applyMapTheme: Map theme applied");
+    }
+
+    private void applyPathColor(SharedPreferences preferences){
+        pathColor = Color.BLUE;
+        String pathSetting = preferences.getString("path", "blue");
+        switch(pathSetting) {
+            case "blue":
+                pathColor = Color.BLUE;
+                break;
+            case "black":
+                pathColor = Color.BLACK;
+                break;
+            case "white":
+                pathColor = Color.WHITE;
+                break;
+            case "gray":
+                pathColor = Color.GRAY;
+                break;
+            case "red":
+                pathColor = Color.RED;
+                break;
+            case "green":
+                pathColor = Color.GREEN;
+                break;
+            case "yellow":
+                pathColor = Color.YELLOW;
+                break;
+            case "cyan":
+                pathColor = Color.CYAN;
+                break;
+            default:
+                // code block
+        }
+    }
+
+    private void applyStatsSettings(SharedPreferences preferences){
+
+    }
+
+    //endregion Settings
 
     //region AssignGlobalVariables
     private void assignUser(){
@@ -154,7 +241,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        mMap.setMapType(4);
+        mMap.setMapType(mapType);
+        mMap.setMapStyle(mapStyleOptions);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
@@ -215,8 +303,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         path = new PolylineOptions();
         path.addAll(points);
         path.width(20);
-        path.color(Color.BLUE);
+        path.color(pathColor);
         if (path != null) {
+            mMap.clear();
             mMap.addPolyline(path);
         }
     }
@@ -397,6 +486,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     //endregion TrailsActivity
+
+
 
 
 
