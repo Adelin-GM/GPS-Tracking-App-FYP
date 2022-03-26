@@ -73,6 +73,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private int mapType;
     private int pathColor;
 
+    private boolean distanceSetting;
+    private boolean speedSetting;
+    private boolean caloriesSetting;
+
     TextView tvDistance;
     TextView tvSpeed;
     TextView tvCalories;
@@ -185,7 +189,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void applyStatsSettings(SharedPreferences preferences){
-
+        distanceSetting = preferences.getBoolean("distance" , true);
+        speedSetting = preferences.getBoolean("speed" , true);
+        caloriesSetting = preferences.getBoolean("calories" , true);
     }
 
     //endregion Settings
@@ -383,15 +389,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void displayDistance() {
+        if(!distanceSetting){
+            tvDistance.setText("");
+            return;
+        }
+
         int distance = getDistance();
         if (distance < 1000)
         {
-            tvDistance.setText("Distance: " +  distance + " m");
+            tvDistance.setText("  Distance: " +  distance + " m  ");
         }
         else
         {
             double distanceKm = distance / 1000.0;
-            tvDistance.setText("Distance: " +  distanceKm + " km");
+            tvDistance.setText("  Distance: " +  distanceKm + " km  ");
         }
     }
 
@@ -412,7 +423,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void displaySpeed(){
-        tvSpeed.setText(String.format("Avg speed: %.2f km/h", getSpeed()));
+        if(!speedSetting){
+            tvSpeed.setText("");
+            return;
+        }
+        tvSpeed.setText(String.format("  Avg speed: %.2f km/h  ", getSpeed()));
     }
 
     private int getCalories(){
@@ -431,7 +446,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void displayCalories(){
-        tvCalories.setText(String.format("Calories: " + getCalories()));
+        if(!caloriesSetting){
+            tvCalories.setText("");
+            return;
+        }
+        tvCalories.setText(String.format("  Calories: " + getCalories() + "  "));
     }
 
     private void updateUserCalories(){

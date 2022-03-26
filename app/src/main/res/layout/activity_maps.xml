@@ -72,10 +72,9 @@
         android:id="@+id/tvDistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="10dp"
         android:layout_marginTop="30dp"
         android:background="#B3000000"
-        android:text="Distance: 0 m"
+        android:text=""
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -86,8 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:background="#B3000000"
-        android:paddingHorizontal="10dp"
-        android:text="Avg speed: 0 km/h"
+        android:text=""
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -97,8 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
         android:background="#B3000000"
-        android:paddingHorizontal="10dp"
-        android:text="Calories: 0"
+        android:text=""
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
