@@ -72,11 +72,12 @@ public class FBDatabase {
             for (int i = 0; i < messageDigest.length; i++)
             {
                 String h = Integer.toHexString(0xFF & messageDigest[i]);
+                Log.d("Hash: h:", h);
                 while (h.length() < 2)
                 {
                     h = "0" + h;
-                    hash.append(h);
                 }
+                hash.append(h);
             }
             Log.d("Hash: ", hash.toString());
             return hash.toString();
