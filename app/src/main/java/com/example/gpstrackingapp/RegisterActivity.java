@@ -89,7 +89,7 @@ public class RegisterActivity extends AppCompatActivity {
         int height = Integer.valueOf(heightET.getText().toString());
 
 
-        UserClass user = new UserClass(username, hashedPassword, weight, height, 0 , 0);
+        UserClass user = new UserClass(username, hashedPassword, weight, height, 0 , 0, true);
         db.updateUser(user);   //Register user to db
 
         changeToLogInActivity(username);

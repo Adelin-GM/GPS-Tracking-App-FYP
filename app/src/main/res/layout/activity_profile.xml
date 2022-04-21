@@ -244,7 +244,8 @@
         android:backgroundTint="#CC4FC8FF"
         android:text="Search profile"
         android:textAllCaps="false"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:onClick="SearchProfileBtn"/>
 
     <Button
         android:id="@+id/Leaderboard"

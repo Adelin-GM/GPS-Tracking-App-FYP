@@ -22,17 +22,19 @@ public class UserClass {
     int height;
     int calories;
     int distance;
+    boolean private_account;
 
     protected UserClass() {
     }
 
-    public UserClass(String username, String password, Double weight, int height, int calories, int distance) {
+    public UserClass(String username, String password, Double weight, int height, int calories, int distance, boolean private_account) {
         this.username = username;
         this.password = password;
         this.weight = weight;
         this.height = height;
         this.calories = calories;
         this.distance = distance;
+        this.private_account = private_account;
     }
 
     protected UserClass(String username){
@@ -50,7 +52,7 @@ public class UserClass {
                     height = snapshot.child(username).child("height").getValue(int.class);
                     calories = snapshot.child(username).child("calories").getValue(int.class);
                     distance = snapshot.child(username).child("distance").getValue(int.class);
-
+                    private_account = snapshot.child(username).child("private_account").getValue(Boolean.class);
                 }
                 else {
                     Log.d("***UserClass***", "User not found");
@@ -108,5 +110,13 @@ public class UserClass {
 
     public void setDistance(int distance) {
         this.distance = distance;
+    }
+
+    public boolean isPrivate_account() {
+        return private_account;
+    }
+
+    public void setPrivate_account(boolean private_account) {
+        this.private_account = private_account;
     }
 }

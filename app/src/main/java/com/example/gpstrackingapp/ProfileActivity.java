@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.MapStyleOptions;
+
 public class ProfileActivity extends AppCompatActivity {
     private static final String TAG = "ProfileActivity";
     TextView username, height, weight, distance, calories;
@@ -31,8 +33,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         fillTextViewsData();
         checkRewards();
-
-
 
     }
 
@@ -115,9 +115,14 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void changeToSettingsActivity(){
         Intent intent = new Intent(this, SettingsActivity.class);
+        intent.putExtra("username", username.getText().toString());
         startActivity(intent);
     }
 
 
+    public void SearchProfileBtn(View view) {
+        Intent intent = new Intent(this, SearchUserActivity.class);
+        startActivity(intent);
+    }
 
 }
