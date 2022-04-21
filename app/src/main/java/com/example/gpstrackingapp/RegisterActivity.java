@@ -22,6 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText passId, usernameId, weightET, heightET;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+    private static final int MINPASSLENGTH = 10;
 
 
     @Override
@@ -40,10 +41,10 @@ public class RegisterActivity extends AppCompatActivity {
             usernameId.setError("Enter a username");
             return;
         }
-        if (passId.getText().toString().equals("")){
-            passId.setError("Enter a password");
+        if (isPasswordShort()){
             return;
         }
+
         //register user if the username is not existent
         usernameNotTaken();
 
@@ -79,17 +80,17 @@ public class RegisterActivity extends AppCompatActivity {
         if (!isHeightValid())
             return;
 
-        rootNode = FirebaseDatabase.getInstance();
-        reference = rootNode.getReference("users");
+        FBDatabase db = new FBDatabase();
 
         String username = usernameId.getText().toString();
         String password = passId.getText().toString();
+        String hashedPassword = db.hashPassword(password);
         Double weight = Double.valueOf(weightET.getText().toString());
         int height = Integer.valueOf(heightET.getText().toString());
 
 
-        UserClass userClass = new UserClass(username, password, weight, height, 0 , 0);
-        reference.child(username).setValue(userClass);
+        UserClass user = new UserClass(username, hashedPassword, weight, height, 0 , 0);
+        db.updateUser(user);   //Register user to db
 
         changeToLogInActivity(username);
     }
@@ -121,6 +122,14 @@ public class RegisterActivity extends AppCompatActivity {
             heightET.setError("Invalid weight. Correct format e.g.: 165");
             return false;
         }
+    }
+
+    private boolean isPasswordShort(){
+        if (passId.getText().toString().length() < MINPASSLENGTH){
+            passId.setError("Password too short. Minimum length: 10 characters");
+            return true;
+        }
+        return false;
     }
 
 

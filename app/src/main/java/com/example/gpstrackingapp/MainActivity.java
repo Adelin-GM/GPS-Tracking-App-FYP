@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void isUser(){
+        FBDatabase db = new FBDatabase();
         String userEnteredUsername = usernameId.getText().toString();
         String userEnteredPassword = passId.getText().toString();
 
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     String passwordFromDB = snapshot.child(userEnteredUsername).child("password").getValue(String.class);
 
                     //Change activity if password matches
-                    if (passwordFromDB.equals(userEnteredPassword)){
+                    if (passwordFromDB.equals(db.hashPassword(userEnteredPassword))){
                         openMapActivity(userEnteredUsername);
                     }
                     else{
